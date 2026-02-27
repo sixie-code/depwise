@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>depwise Pro - Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8fafc; }
+        .container { max-width: 600px; margin: 50px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #2563eb; margin-bottom: 30px; }
+        .plan-summary { background: #f1f5f9; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .plan-summary h2 { color: #2563eb; margin-bottom: 10px; }
+        .price { font-size: 36px; font-weight: bold; color: #2563eb; }
+        .features { margin: 20px 0; }
+        .features li { padding: 5px 0; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 16px; }
+        .form-group input:focus { outline: none; border-color: #2563eb; }
+        #card-element { padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; }
+        .error { color: #dc2626; margin-top: 10px; }
+        .submit-btn { width: 100%; background: #2563eb; color: white; padding: 16px; border: none; border-radius: 6px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 20px; }
+        .submit-btn:disabled { background: #9ca3af; cursor: not-allowed; }
+        .security-note { text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Subscribe to depwise Pro</h1>
+
+            <div class="plan-summary">
+                <h2>Pro Plan</h2>
+                <div class="price">$29<small>/month</small></div>
+                <ul class="features">
+                    <li>✅ Unlimited dependency scanning</li>
+                    <li>✅ CI/CD integration</li>
+                    <li>✅ Team dashboards</li>
+                    <li>✅ Custom scoring rules</li>
+                    <li>✅ Export reports (JSON, CSV)</li>
+                    <li>✅ Priority support</li>
+                </ul>
+            </div>
+
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company (Optional)</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-element">Card Information</label>
+                    <div id="card-element"></div>
+                    <div id="card-errors" class="error" role="alert"></div>
+                </div>
+
+                <button type="submit" id="submit-button" class="submit-btn">
+                    Subscribe Now - $29/month
+                </button>
+            </form>
+
+            <div class="security-note">
+                🔒 Secure payments powered by Stripe. We never store your card information.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Placeholder for Stripe integration
+        // TODO: Replace with actual Stripe publishable key
+        // const stripe = Stripe('pk_test_...');
+
+        // For now, show placeholder message
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Stripe integration pending. Please contact pro@depwise.dev for manual setup.');
+        });
+
+        // Mock Stripe Elements for now
+        const cardElement = document.getElementById('card-element');
+        cardElement.innerHTML = '<div style="padding: 12px; color: #6b7280; border: 1px dashed #d1d5db; border-radius: 6px;">Card payment form (Stripe integration pending)</div>';
+    </script>
+</body>
+</html>
