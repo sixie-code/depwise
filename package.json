@@ -1,0 +1,30 @@
+{
+  "name": "depwise",
+  "version": "0.1.0",
+  "description": "Intelligent dependency health scanner for npm projects. Know which packages are thriving, abandoned, or risky.",
+  "main": "src/index.js",
+  "bin": {
+    "depwise": "./bin/depwise.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/**/*.test.js",
+    "start": "node bin/depwise.js"
+  },
+  "keywords": [
+    "dependencies",
+    "security",
+    "audit",
+    "health",
+    "npm",
+    "scanner",
+    "maintenance",
+    "abandoned",
+    "supply-chain"
+  ],
+  "author": "depwise",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
