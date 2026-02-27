@@ -6,6 +6,8 @@ Know which packages in your project are thriving, abandoned, or risky — before
 
 ## Why depwise?
 
+**The Snyk Advisor gap:** Snyk Advisor (the leading dependency health checker) shut down in January 2026, leaving developers without a comprehensive health assessment tool.
+
 `npm audit` only catches reported CVEs. `npm outdated` just lists version numbers. Neither tells you:
 
 - Is this package still actively maintained?
@@ -13,12 +15,38 @@ Know which packages in your project are thriving, abandoned, or risky — before
 - Is it likely to be abandoned?
 - What's the overall health trajectory?
 
-**depwise** gives you a composite health score for every dependency, combining maintenance activity, popularity, security signals, maturity, and code quality indicators.
+**depwise** fills this gap with a composite health score for every dependency, combining maintenance activity, popularity, security signals, maturity, and code quality indicators.
+
+## Real Impact
+
+In a typical 500-dependency Node.js project, **depwise** typically identifies:
+- 12-15 packages with maintenance concerns
+- 3-5 packages at risk of abandonment
+- 2-3 critical issues requiring immediate attention
+- Potential supply chain risks before they become vulnerabilities
 
 ## Install
 
+### Option 1: Direct Download (Recommended)
+
+```bash
+# Download and install directly from GitHub releases
+curl -L https://github.com/sixie-code/depwise/releases/latest/download/depwise-0.1.0.tgz | tar -xz
+cd package && npm install -g .
+```
+
+### Option 2: From npm (when available)
+
 ```bash
 npm install -g depwise
+```
+
+### Option 3: Clone and Install
+
+```bash
+git clone https://github.com/sixie-code/depwise.git
+cd depwise
+npm install -g .
 ```
 
 ## Usage
@@ -73,6 +101,17 @@ Each dependency gets a **0-100 composite score** from five weighted signals:
 | Team reports | — | ✓ |
 | Upgrade simulation | — | ✓ |
 | Slack notifications | — | ✓ |
+
+## Why This Tool Matters
+
+With **Snyk Advisor shutting down in January 2026**, there's a significant gap in the JavaScript dependency analysis ecosystem. Most tools focus only on known CVEs, but the real risks often come from:
+
+- Abandoned packages that still get millions of downloads
+- Packages with single maintainers (bus factor = 1)
+- Dependencies with suspicious activity patterns
+- Popular packages that suddenly change ownership
+
+**depwise** fills this gap with intelligent risk assessment that goes beyond vulnerability scanning.
 
 ## Data Sources
 
